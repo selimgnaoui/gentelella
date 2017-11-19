@@ -3705,18 +3705,17 @@
     <script>
         
         $( document ).ready(function() {
-            var b=0;
-            var r=0;
+            var table_element_number=0;
+            var select_element_number=0;
             $(".table-striped").each(function() {
         console.log ($(this).prop("id"));
-        r+=$('select[name='+$(this).prop("id")+'_length]').length;
-        b++;
+        select_element_number+=$('select[name='+$(this).prop("id")+'_length]').length;
+       table_element_number++;
   
 });
- 
-  var a=$('#datatable_length').length;
-      console.log (b);
-       console.log (r);
+ console.log(" table_element_number :    " +table_element_number)
+ console.log(" select_element_number :    " +select_element_number)
+    alert (table_element_number==select_element_number);
 });
        
     </script>

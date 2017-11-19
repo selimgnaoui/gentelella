@@ -4,18 +4,36 @@
       <title>QUnit basic example</title>
       <link rel = "stylesheet" href = "https://code.jquery.com/qunit/qunit-1.22.0.css">
       <script src = "https://code.jquery.com/qunit/qunit-1.22.0.js"></script>
+         <script src="../vendors/jquery/dist/jquery.min.js"></script>
+      
    </head>
    
    <body>
       <div id = "qunit"></div>
       <div id = "qunit-fixture"></div> 
-      
+      <div id="div"></div>
       <script>
-         function square(x) {
-            return x * x;
-         }
+          
+function count  (classname){
+  
+            var tables_number=0; // how many <table></table> do we have ? initially 0
+            var select_element_number=0; // how many <select></select> do we have ?  initially 0
+             $("#div").load("tabes_dynamic.html", function() {
+             $("."+classname).each(function() { // loop over all tables that have class table-striped
+         tables_number++; // increment the total number of table 
+         select_element_number+=$('select[name='+$(this).prop("id")+'_length]').length;// check how many select element do we have for this table , element  should be 1 
+});
+});
+        
+   
+ 
+  return tables_number===select_element_number;  // return boolean 
+          }
+          
+         
          QUnit.test( "TestSquare", function( assert ) {
-            var result = square(2);
+             
+            var result = count();
             assert.equal( result, "4", "square(2) should be 4." );
          });
       </script>
