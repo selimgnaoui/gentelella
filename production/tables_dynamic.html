@@ -3702,6 +3702,23 @@
 
     <!-- Custom Theme Scripts -->
     <script src="../build/js/custom.min.js"></script>
-
+    <script>
+        
+        $( document ).ready(function() {
+            var b=0;
+            var r=0;
+            $(".table-striped").each(function() {
+        console.log ($(this).prop("id"));
+        r+=$('select[name='+$(this).prop("id")+'_length]').length;
+        b++;
+  
+});
+ 
+  var a=$('#datatable_length').length;
+      console.log (b);
+       console.log (r);
+});
+       
+    </script>
   </body>
 </html>
